@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Casa Rede Ronaldo · Miami · Copa 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:14px;scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#F0F0EE;color:#111;-webkit-font-smoothing:antialiased}
+
+:root{
+  --gold:#FFC700; --gold-dk:#C49A00;
+  --ink:#111; --ink-2:#444; --ink-3:#888;
+  --line:#E4E4E2; --card:#fff; --bg:#F0F0EE;
+  --night:#111;
+
+  --c-hyp:#FFC700; --b-hyp:#5C3800;
+  --c-br:#16A34A;  --bg-br:#EDFBF2;
+  --c-game:#DEDED C;--bg-game:#FAFAFA;
+  --c-giro:#D97706;--bg-giro:#FFF8E6;--t-giro:#78350F;
+  --c-mm:#4F46E5;  --bg-mm:#EEF0FD;
+  --c-esp:#DC2626; --bg-esp:#FFF0F0;
+  --c-d1:#EA580C;  --bg-d1:#FFF7ED;
+  --c-resd:#7C3AED;--bg-resd:#F5F3FF;
+  --c-cav:#F59E0B; --bg-cav:#FFFBEB;
+  --c-final:#DC2626;--bg-final:#FEF0F0;
+  --c-slot:#D0D0CE;--bg-slot:#F8F8F8;
+
+  /* Show palette — warm and inviting, NOT black */
+  --sh-bg:#F4F4F2;
+  --sh-border:#FFC700;
+  --show-bg:#FFC700; --show-tx:#1A0F00;
+  --dj-bg:#F2F0EC;   --dj-tx:#555;
+  --samba-bg:#EDE9FF;--samba-tx:#4C1D95;
+}
+
+/* ── Header ─────────────── */
+.hd{background:var(--night);height:58px;display:flex;align-items:center;padding:0 24px;gap:14px;position:sticky;top:0;z-index:200;border-bottom:3px solid var(--gold)}
+.hd img{height:30px;border-radius:5px;flex-shrink:0}
+.hd-div{width:1px;height:20px;background:#2A2A2A;flex-shrink:0}
+.hd-info{flex:1;min-width:0}
+.hd-title{font-size:13px;font-weight:600;color:#fff}
+.hd-sub{font-size:9px;color:var(--gold);letter-spacing:1.2px;text-transform:uppercase;font-weight:500;margin-top:1px}
+.hd-right{text-align:right;flex-shrink:0}
+.hd-date{font-size:12px;font-weight:700;color:var(--gold)}
+.hd-tz{font-size:9px;color:#555;margin-top:1px}
+
+/* ── Tabs ────────────────── */
+.tabs{background:var(--night);display:flex;padding:0 24px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #222}
+.tabs::-webkit-scrollbar{display:none}
+.tab{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#555;background:none;border:none;border-bottom:2px solid transparent;height:38px;padding:0 16px;cursor:pointer;white-space:nowrap;transition:color .12s;margin-bottom:-1px}
+.tab:hover{color:#999}
+.tab.on{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ── Wrap ────────────────── */
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 80px}
+.phase{display:none}.phase.on{display:block}
+.warn-bar{background:#FFFBEB;border:1px solid #FDE68A;border-radius:6px;padding:8px 14px;font-size:11px;color:#92400E;font-weight:500;margin-bottom:12px}
+
+/* ── Day card ────────────── */
+.day{background:var(--card);border-radius:10px;border:1px solid var(--line);overflow:hidden;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.day-show{border-top:3px solid var(--gold)}
+
+.day-hd{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:#FAFAF8;flex-wrap:wrap}
+.day-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.day-chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{font-size:9px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;padding:2px 7px;border-radius:3px}
+.c-d{background:#EEEEED;color:#888}
+.c-br{background:#EDFBF2;color:var(--c-br)}
+.c-d1{background:var(--bg-d1);color:var(--c-d1)}
+
+/* ── Section divider ─────── */
+.section-divider{display:flex;align-items:center;gap:0;padding:0 16px;border-bottom:1px solid var(--line)}
+.section-label{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:7px 0;display:block}
+.ed-label{color:var(--ink-3)}
+.sh-label{color:var(--gold-dk)}
+
+/* ── Editorial grid ──────── */
+.ed-grid{padding:2px 0}
+
+.er{display:grid;grid-template-columns:50px 1fr;min-height:44px;align-items:stretch;border-bottom:1px solid #F2F2F0}
+.er:last-child{border-bottom:none}
+.er-t{font-size:10px;font-weight:700;color:var(--ink-3);text-align:right;padding:12px 10px 0 0;align-self:flex-start;letter-spacing:.1px}
+.er-c{display:flex;flex-direction:column;justify-content:center;padding:8px 14px 8px 12px;border-left:3px solid transparent;gap:2px}
+.er-c-inner{display:flex;align-items:center;gap:8px}
+.er-logo{width:24px;height:24px;border-radius:4px;object-fit:contain;flex-shrink:0}
+.er-name{font-size:12.5px;font-weight:500;color:var(--ink);line-height:1.3}
+.er-sub{font-size:10.5px;color:var(--ink-3)}
+.badge{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border-radius:3px;background:var(--c-br);color:#fff;vertical-align:middle;margin-left:5px}
+
+.t-hyp .er-t{color:#9A7000}
+.t-hyp .er-c{background:var(--c-hyp);border-left-color:var(--gold-dk)}
+.t-hyp .er-name{color:var(--b-hyp);font-weight:700}
+.t-br   .er-c{background:var(--bg-br);border-left-color:var(--c-br)}
+.t-br   .er-name{color:#14532D;font-weight:700}
+.t-game .er-c{background:var(--bg-game);border-left-color:#D8D8D6}
+.t-game .er-name{font-weight:400}
+.t-mm   .er-c{background:var(--bg-mm);border-left-color:var(--c-mm)}
+.t-mm   .er-name{color:#2D2080;font-weight:500}
+.t-final .er-c{background:var(--bg-final);border-left-color:var(--c-final)}
+.t-final .er-name{color:#7F1D1D;font-weight:700;font-size:13px}
+.t-giro .er-c{background:var(--bg-giro);border-left-color:var(--c-giro)}
+.t-giro .er-name{color:var(--t-giro);font-weight:600}
+.t-slot .er-c{background:var(--bg-slot);border-left:3px dashed var(--c-slot)}
+.t-slot .er-name{color:#C0C0C0;font-size:11.5px;font-weight:300;font-style:italic}
+.t-esp   .er-c{background:var(--bg-esp);border-left-color:var(--c-esp)}
+.t-esp   .er-name{color:#7F1D1D;font-weight:600}
+.t-espd1 .er-c{background:var(--bg-d1);border-left-color:var(--c-d1)}
+.t-espd1 .er-name{color:#7C2D12;font-weight:600}
+.t-resd  .er-c{background:var(--bg-resd);border-left-color:var(--c-resd)}
+.t-resd  .er-name{color:#4C1D95;font-weight:600}
+.t-cavaco .er-c{background:var(--bg-cav);border-left-color:var(--c-cav)}
+.t-cavaco .er-name{color:#78350F;font-weight:700}
+
+/* ── Show grid ───────────── */
+/* Warm cream background — legible, inviting, clearly different from editorial */
+.sh-grid{
+  background:var(--sh-bg);
+  padding:8px 14px 14px;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.sh-empty{padding:10px 0;font-size:11px;color:var(--ink-3);font-style:italic}
+.sh-tz{font-size:8.5px;color:var(--ink-3);margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+
+/* Base row */
+/* Base layout */
+.sr{
+  display:grid;
+  grid-template-columns:36px auto 1fr;
+  align-items:center;
+  gap:0 8px;
+  border-radius:4px;
+  overflow:hidden;
+}
+.sr-t{
+  font-size:10px;font-weight:600;
+  color:#AAA;text-align:right;
+  white-space:nowrap;flex-shrink:0;
+  padding-right:2px;
+}
+.sr-icon{font-size:12px;line-height:1;flex-shrink:0}
+.sr-name{font-size:11.5px;font-weight:400;padding:4px 8px 4px 0;color:#666}
+
+/* DJ: linha fina, altura mínima — claramente secundário */
+.sr-dj{}
+.sr-dj .sr-t{color:#BBB}
+.sr-dj .sr-icon{opacity:.4;font-size:11px}
+.sr-dj .sr-name{color:#888;font-size:11px;font-weight:400}
+
+/* SHOW: bloco com área real — destaque por espaço e borda, não por fonte */
+.sr-show{
+  background:var(--show-bg);
+  border-left:4px solid var(--gold-dk);
+  border-radius:5px;
+  box-shadow:0 1px 6px rgba(255,199,0,.15);
+  margin:5px 0 3px;
+}
+.sr-show .sr-t{
+  color:#8A5E00;font-weight:700;font-size:10px;
+  padding-right:2px;
+}
+.sr-show .sr-icon{font-size:14px;opacity:1}
+.sr-show .sr-name{
+  color:var(--show-tx);font-weight:700;font-size:12px;
+  padding:10px 10px 10px 0;
+}
+
+/* SAMBA: igual ao show em área, cor diferente */
+.sr-samba{
+  background:var(--samba-bg);
+  border-left:4px solid #7C3AED;
+  border-radius:5px;
+  margin:5px 0 3px;
+}
+.sr-samba .sr-t{color:#6D28D9;font-weight:700;font-size:10px}
+.sr-samba .sr-icon{font-size:14px;opacity:1}
+.sr-samba .sr-name{
+  color:var(--samba-tx);font-weight:700;font-size:12px;
+  padding:10px 10px 10px 0;
+}
+
+/* ── Responsive ──────────── */
+@media(max-width:600px){
+  .hd{padding:0 14px;height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:10px}
+  .tabs{padding:0 14px}
+  .wrap{padding:14px 10px 60px}
+  .er{grid-template-columns:42px 1fr}
+  .sh-grid{gap:5px}
+  .sr-name{font-size:11px}
+}
+</style>
+</head>
+<body>
+<header class="hd">
+  <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADhAOEDASIAAhEBAxEB/8QAHQABAAICAwEBAAAAAAAAAAAAAAcIBQYCBAkDAf/EAEgQAAEDAwIDAwcGCwYHAQAAAAEAAgMEBREGBxIhMRNBUQgUIjJhcYEXQlJWkaEVFiNUgpKTlbHB0jM3V3J2syQlNVNidHW0/8QAHQEBAAEFAQEBAAAAAAAAAAAAAAQDBQYHCAIBCf/EAEMRAAECAwUFBAYGBwkAAAAAAAEAAgMEEQUGEiExByJBUWETMnGBFEKRobHwCFJicqLRIyQzwcLh4hYXGENTVIKy0v/aAAwDAQACEQMRAD8AhFERdYLH0RERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERZjRmmb1rDUdNp/T9IaquqMnBPCyJg9aSR3zWNyMn2gAFxANlbB5KdgbQM/GHVd4nrCPT/B7YoYmnwAkZI448cjOOg6KxWveSz7JIbMvo48AKmnPp5+Sqw4L4ndCqkin/dfybLlp60zXnR1xqb5T07S+ahniHnfCOZcwsAbIQPmBrTgHHESGqv7SHNDmkEEZBHepVl2xJ2rC7WVfiA14EeIPyeC8xIboZo4L9REVzXhERERERERERERERERERbJt9eLBaryG6nsVJdLXOQ2Vz4eOWnP02d7h4t6kcxzGHQLUnIslKRJiFBdFc0VwNpid0FSATyFc9BmqkJge8NJpXidFraK19HoLbytpIayj05Z6innYJIpY4w5r2kZBBHUFfX5OdCfVS1/sVoF/wBJSwYbix8nGBGRBDMvxrIhdeYIqHt9/wCSqWitp8nOhPqpa/2KfJzoT6qWv9ivP+Ji7/8AtI34P/af2Wmfrt9/5KpaK2E+2egpmFjtL0LQe+PijP2tIK1y8bHaQqmf8tnuVreOnBP2zCfaJMuPwcFPkPpHXVmHhkeHFhdS1pH4XE/hKpxLszbRVpB8/wAwq5Ipan281LoepdXN03p/XVqBDpYKiiLpQ0ZyWtB42kjl6LpB3lpUrbQS7A6/4KCLQ9ls9+4T2ltqYm8TyPW7J/ISAYPLAcMZLQtjwr/2ZNyhnbP/AFiENXMIOH77SQ5v/JoVqiSEWE7BFGE9f3HQqp6K/wB8ju131Hsv7BPkd2u+o1l/YKB/eXIf6L/d+a+egv5hUBRX9ds1tY71tCWR2PGnCxd12B2ouGSdL+av7nUlZPCB+i1/D9oXtm0qzid6E8eTT/EnoT+YVFkVn9YeSpAY3S6P1VMyQAkU12jD2uPcBLGGlg97Hn+cB680NqvQ1c2l1PZ5qISO4YagEPp5z/4SDkTjnwnDsdQFlNl3ks21Dhl4oLvqnI+w6+VVQiQHw+8FY7yHbLSRaQv+ojGw11TcRR9p1IhiiY8N9npSvJ8cNz0GLEKpnkZ69oLLdK/RN1mZTR3WcVVBK9wDXVHCGOiJPQuaxnD4lpHUtBtmtLX1gR4VsxXRvWoQeYoAKeGnkrnKkGEKIqA+UHZqWw70ant1DG2OlNUyojYDyaZomSuAHcON7sDuGMK9+obzbNPWWqvN5rIqOgpYzJNNIeTR4eJJOAAOZJAHMrzz3E1LLrHXd51RNCYDcakyMiJyWRtaGRtPdxBjGA45ZBwsh2ZwI/pcaMP2eGh5Yqgj2CvhXqqM8RhA4rAoiLcitqIiIiIiIiIiIiIiIiIiIikDaLcap0dVi3XAyVFhnfl7AC51K4nnIwd4PVzB16jnkOszR1NPW0kNXSTx1FPMwSRSxuDmvaRkEEdQVSZb/tDuNUaOqxb7gZKiwzvzIwAudSuJ5yMHeD1cwdeo55DudNsWx1tutfbNjMpMjN7B/mdR9v8A7fe1yaxbaMuRAjnd4Hl/L4Kz6L5UdTT1lJDWUk8dRTzsEkUsbg5r2kZBBHUFfVcUvY6G4seKEZEHgs5BBFQiIi8r6i0Xcfba16qabjRuFrvsZEkNbDlhe8YLe04eZwQMPHpNwMHuO9IrvYdvWhYM42ds6KYcRvEcRyI0IPEGoKozEvDmGGHEFQte2M3duzb+3bfctpp79HiOhuEhAbWfRa89C92PReOT8EHDxh0+KuG7Oh6fWViPYNbFeKRpfQ1GeE8XXsy4cw12Bz+acHuwd08mbcmfW+l57RfnluprIRBXNkHC+VmS1spH0stLXjuc0nADgF03ZFtSl6rMNqSjBDisIEaGNGk6PZ9h54eq7LMUKwyblHyUXs3GrTof3HqFLaIi+qgi6t2t1BdrdPbbpRU9bRVDeCannjD45G+BaeRXaRfWuLSCDQhFTzygthJdKU1RqXSEc9bYGhz6yieTJLQt73gnnJF45y5vU8Tclukae3o3QsdEyjotYVc1MxvDGyrhiqS0f55Gl5x3ZdhX6IBGDzBVLfKh2qi0PfYtQWCl7PTtzkLTCwejRVHM9mB3RuGS0dG8Lm8hwhbZureODa+GzrVa17vVLgDXoa+tyPHQ562+YgmHvw8lG+sda6t1jNHLqjUNbdOyOYo5C1kTDgjiETA1gdgkcXDnBxnCwCItowYEKAwQ4TQ1o4AUHsCgEkmpRERVV8REREREREREREREREREREREREXco7xeaKnFPQ3u7UkDSS2KnrpYmAk5OGtcAMkk+8r7fjFqT6z3/wDek/8AWsaigPsuRiOL3wWknUlor8FUEaIBQOPtWbodY6uoZBJS6pvTXDp2la+UfqvLgfiFJGiN8K6CeOl1dTNqackA11NHwyM9r4xycO88OD4NKhxFjV4Nnl27wQDBnJRlTo5oDXjqHAA+RqOYKlS1pTUs7Ex58DmPYrsUFXS19FDW0VRHU007A+KWN3E17T0IK+yrp5POsJrTqBumKyYm23Fx83DjygqDzGPAP6EfS4SOribFrgnaHciYuZbLrPiuxMIxMd9Zp0r1BBBHMV0IWwrNn2z0ARBkdCOqKAd/bVX6X1ZBq3T9dX2s3ZjoKqaiqXwOEoAOOJjgcPa0Hh6ZjJPMqflpW99qZddsbuHAcdHF57G7GS0xHidj3sDx8VP2TXjdYN6ZaIT+jikQ3jgWvIGf3XUd5KnbEqJiUcOIzHiPmirkNZ61ByNa6pB/+zU/1raNK727nadma6DU89yhb1p7qPOmP97iRJ9jwo7RfoZHsuSjtwRYLSOrQtbCI4Zgq8Oye91i3DLbXVwNs2oQCfM3S8cdQAMl0L8Di5DJaQHDn1A4lLC8yqSoqaOrhrKOolpqqnkbLDNE7hfG9py1zT3EEAhX22D183cPb6nus/A26UrzSXJjW4AnaAeJo+i5rmuGOnER1BWnb53SZZVJqV/ZE0I1wnhnyPXQ8cwrjLTBibrtVv6wuutNW/WGkblpu5t/4avgMZeGguid1ZI3PLia4NcPaAs0iwOFEfCeIjDQg1B5EaKWQCKFeaF4ttbZ7tWWi5RtjraGokpqhrc8PaMcWuxnqMg4PeMLqqZPLDsDbRvA65QxcEN6oY6kkdHTMzE/H6LYifa5Q2unbJnhaElCmR64B8+I8jUKxxGYHFqIiK4LwiIiIiIiIiIiIiIiIiIiIiIiIiIiIuEkscQBkkYwHpxHC4edUv5zD+uFn9Gamuek75HdbY9rjjgngefydRHnmx3h7HdQfiDajRWpbPq2xx3W1OHDnhmheB2kEnexw8fb0I5jktU7Rto0/ckMjmzjGl3ZdoImGjuTm9m6leBqQehyV3syzIc/VvaYXDhT4ZqnMdyZSysq6WqhbUQPbLC7jHJ7TxNPwICu/TTNqKaKoYMNlY149xGVy4GfQb9i5Lk3ajtPhX8EsWynYug488eOodhy7jaUw9dVmFk2UbPxb+LFThTTzKDn0XXu1KKy1VlJJHxsngfE5pHIhzSCPvXzvdroL1aai13OmbU0lSzgkjdkZHiCOYIOCCOYIBCq3uboe56JuwjkklqrXUOIo6z6Xf2b8chIBn2OAyO8Ng7NblyN7J30Z0/6PMNNWNMPEHgZ7rsbd4cW0rTME50qWpPRJNmLs8TeOenuWlwys80jle4NaWAkuOOoTzql/OYf1wslY7rcrHdqa72islo6+leJIZo+rT7jyIIyCDkEEgggkK7uxG6tn3ItBp54qei1FSRg1lEByeOnbRZ5lhOMjmWkgHq1zu9LxW5MWPCEdsv2jOJDqYfEYTl1rrrwrrqDCbENCaFUQ86pfzmH9cKw/kL3trdaaisUc/aMq7cys4Wuy1phkDCfYSJh78DwVteyi/7bP1Qv1rGNOWsaD7Atb21f5lqSMSUMtTENcdaUIOmEcuamw5TA4OxLki4yxxzRPilY2SN7S17HDIcD1BHeFTnyj9marRk82qNLtnl01I7iqKdjnF1ucf4w+B+b0PLBGKWDZcvakx6PFjdm492oqCeWooeXPTWlZEWI6GKgVW1+XZRtP4n3EAAtNZA445ni7Fw+zgd9qrGhc53rPc7/ADOJRb+sKyzZUiyUL8WGudKaknSp581aIsTtHlyIiK7qmiIiIiIiIiIiIiIiIiIiIiIiIiIiIizWi9T3XSV8ZdbVIM4DZ4Hk9nUR59R38ndQfiDhUUSfkJa0JZ8rNMD4bxRzTmCD8+WoXuHEdCcHsNCFcLRWqLVq2xx3W1SnhzwzQvx2kEmObHjx9vQjBHJZxU70Xqe66SvjLrapBxYDZ4Hk9nUR59R38ndQfiDanRWqLVq2xx3W1SnGeCaF+O0gkxzY4ePt6EcxyXBe1bZTM3OmTNStXybzuu1LCfUf/C7j4rYVkWu2dbgfk8e/qFm10r7abdfLTUWq60rKqjqG8MkbvtBBHMEHBBHMEAhd1FqCBHiy8VsaC4tc0ggg0IIzBBGhHAq9OaHAtcKgqp25uhbjom7COQvqrXUOPmdYR63f2b8chIB8HAZHeG6/YbtcrDeaW8Wesloq+kfxwTxnm0/wIIyCDyIJByCriXy1W++WmotV1pWVNHUN4ZI3faCCOYIOCCOYIBCq3uboW4aJuwjkc+qtdQ4+Z1hb63f2b8chIB8HAZHzg3uHZJtbgXrgCybWIE2BTOlIopmQNMVO83QjeblUNwG2bGdKO7aD3Ph/JW/2H3atu5FmMFQ2Kh1FSMBrKMO5Pb07aLPMsJ6jq0nBzlrnSavNKxXW5WK8Ut4s9ZLRXCkkEkE8Z9Jh/gQRkEHkQSDkEq8Gw+7Vt3Is5gnbHQ6ipIwayjB9F46dtFnmWE9R1aTg9WudLvfdB1mOM1KisE6j6v8ATyPDQ8CYUtM4912qk1cJ4op4HwTxslikaWPY9oc1zSMEEHqCuaLAVMVNPKO2Vk0XNNqjS8D5dNSO4qinbkutzifvhJ6H5vQ8sEQivTaeKKeF8E8bJYpGlj2PaC1zSMEEHqCqb+UdsrLouebVGl4Hy6akdxVEDRl1ucT98JPQ/N6Hlgjclzb5elYZGedv6NcfW6H7XI8fHW2zMth3m6KEURFsxQUREREREREREREREREREREREREREREREREWa0Xqe66SvjLrapBnAZPA8/k6iPPqO+/DuoPxBwqKJPyEtaMs+VmmB8N4o5pzBB+fLgvcOI6E4PYaEK4WitUWrVtjjutqlPDnhmhfjtIJO9jh4+3oRzHJZxU70Xqe66SvjLrapBnAbPA8ns6iPPqO/k7qD8QbUaK1RatW2OO62qU8OeGaF+O0gkxzY8ePt6EYI5LgvatspmbnTJmpUF8m87rtSwn1H/wu4+K2FZFrtnW4H5PHv6hZxdK+Wq33y01FqutKyqo6hvDJG77QQRzBBwQRzBAIXdRaggR4svFbGhOLXNIIINCCMwQRoRwKvTmhwLXCoKqduboW4aJuwjkc+qtdQ4+Z1hb63f2b8chIB8HAZHzg3X7FdrnYrxTXizVstDcKV/HBPHjiYfjyIIyCDkEEgggq4l9tNuvlpqLVdaVlVR1DeGSN3f3ggjmCDggjmCAQqt7m6FuGibsI5HPqrXUOPmdYR63f2b8chIB8HAZHzg3uHZJtbgXrgCybWIE2BTOlIopmQNMVO83QjeblUNwG2bGdKO7aD3Ph/JW/2H3atu5Fm7Co7Gi1HSxg1tEDgPHTtosnJYSRkcy0kA5y1zpNXmnYrtcrFeaS82esko7hSSdpBPGebDjHuIIJBB5EEg5BV39h92rbuTZjBO2Kh1FSMBrKIO5PHTtos8ywnGR1aTg5y1zpd77oOsxxmpUVgnUfV/p5HhoeBMKWmce67VSauE8UU8L4J42SxSNLHse0FrmkYIIPUFc0WAqYqaeUdsrLouebVGl4Hy6akdxTwNyXW5xP3wk9D83oeWCIRXptPFFPC+CeNksUjSx7HtBa5pGCCD1BVN/KN2Ul0XNNqjS8D5dNSO4qiBoy63OJ++HPQ/N6Hlgjclzb5elYZGedv6NcfW6H7XI8fHW2zMth3m6KEURFsxQUREREREREREREREREREREREREREREREREWa0Xqe66SvjLrapBnAZPA8ns6iP6Dvvw7qD8QcKiiT8hLWjLPlZpgfDeKOacwQfny1C9w4joTg9hoQrW2Tc3RNytVPWyaht1uklbl9NWVLIpYnd7S0n7xyPULufj/ob642D94Rf1KpLIZnxukjhlexnrOawkN957l+w01TOwPgpppWHlxMjLh9oXOsx9G677or3MnIjW1yG6aV0FSOHXNZMy88yAAWAnzVtfx/0N9cbB+8Iv6l0r5qrba+WmotV11Pp2qo6hvDJG64R+8EEOyCDggjmCAQqrPhmZC2Z8MrInY4XuYQ12emD0K/XU9SyLtX007Y+R43RuDefTnjCQPo5WPLxWxYNoRWuBqCMIII0oQNQeWaOvNGcC10IEeaymsrTb7LfJKS036gvdA8cdPU01QyR3Dn1ZA0+i8fAO6jHNrenY7rcrHeKW8WetmobhSSdpBPEfSYf4EEZBByCCQQQV1hDMYXTtglMLMl0gYS1uBk5PQYCQwzzxzSwQTTRwM7SZ8cZc2Jn0nED0W8jzOAuhpOXdClGwJmJ2pAo5xAGLhmBlU8aChPAaLGojg55c0UHLkrrbV796P1Jptk2p7va9OXiDDKqCrqWwxynH9pCXn0mnwyS08jnk523fKttl/iDpf96Q/wBS8/BBO5rHNglLZHcLCGHDz4DxPuRtPUObI5tPMWxnEhEZww+3w+KweZ2dWdEiueyK5oJ0yoOmeaktnXgUIXoH8q22X+IOl/3pD/UuE+6G1s8L4J9eaUlikaWPY+5wFrmkYIILuYK8/nwzsbG58MrGyf2ZcwgP93j1HRKiGane1lRDJC52eFsjC0nHXGfeFSGzaSrlHd7l99OdyUjb56U0VZrz+Fdv9VWK6Werf6VvpbhFLNRPPPDWhxLoj3d7eh5YKjZc5YKiFkMk1PPCydnaQOkic1srPpMJGHDmOYyOa4LYEhAfLy7YT4heRliOp8eZ6+3NQ3kONQKIiIpi8oiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiKZNjrlVWvQNbPSOaHy6opKZ3EMjglNNG/48Ljg+KzGq73X6N0ddKnT5hppHalmjw6MPaGva57sA9PSCw2x1RQ02ga19fSGqjdqekjYwOxwyuNM2N/6Ly13wXf15Vfgrby/MuVHTXiWpv9TDG+Zgb2DnscWStGD6TBgDp7wuR7VlYUxfSZhRIAiB0ywFppSIKMyzy3anvU72Vc6ZtCcWyDHB1KMOfLX4/uWZts7qrSNq01OyOS21GijNJG5uSXNZEwc/c4/HB7lp2+2obpHTW3TLZWfg2qtdNUTMLBxF4kJB4uo5xt5LbLJ/Y2L/AEI/+EC0vf2spXGw20WunFW23wVBuAx2pjxK3semeDPpdevcvlxJOC+9Eq0wA8Yoj6Zbrqu/SZ+sMIzG9kKaL5aD3CTecVMgPLLJSn5J9yqrbtS40rmtNTrJlNJlucsfBThw963HRT49Lm30dkpqelgvevrpTVzWxD042srHNA8MdhEBjoG46LTfJSqaGl2nc6uojVtk1nHFEA8t7KV0NOGye3B7ls9jgqaZ2kYaypFVUDca7GSYN4Q8mK4nOO73d3RbKtpodPTYIyLj50a4j2Hn5LHoPdavhS6dpBttpMUULaamsO4kr4Io2gNbH+F6mnazHc0CUdPALHbd2uSu0DvzTtwH1+o77TR573dkf5u+4rdtu66nlhotNVMXEytu2oK9jzjAkpb1xNHvzJn9ErobYW+QwXanippuwuWsL/JUyNYSwflZogXEchnAAz4KHEnIjIccP1x1B6Y3O+LSvYaKinzkoN3J5bf7BY/M3/7lEpt3Pm/GWn1TYL1T01Xb7dqWwQU0b4geFk89J2gJ78iWRvucR0UJbk/3fbBf+m//AHKJTRqn/rWuf9V6Y/36BX20AMMs/iHRCOn6y0fAlUWau8vgta8o6tlvO1Wt/wAIRwSmw6qpaW2uEQBhjdDSkgHxPbyDPg7HcqqK0W+f91e6n+tKT/8APb1V1ZZcdobZzmjTEPfDYfiSfNR5rv8AzzKIiLMlGREREREREREREREREREREREREREREREREW+aD1PZrPoya2V1RIyqdqKjuAY2F7h2MUlOXnIGMgRu5ZyccltF/wBU7d6jtNfa7rfLnSwS3Y10UlNRv4yCwNHrRuAHN3d3KG0Wu5/ZnZk5PPnxGisiufjq1zRR27pVh0wjnqelLpDtaMyGIeEEAUzB0z69VMUGvtJ0ej6GeOprJ79TacFrbSCBzYuMsZxZcRjAcwcwemcA8lgd07xovUVvprjbrvcpL3SUdPSR0ppnMgc1r8vJc5nUB7+jh0HLxjtF4szZhZdmTkOdlo0UPY4u7zcwdWEYO5rkKHM72lEW140WGYb2toRTQ+3XVTNs7uPpnSm3MVmudXMyvGrqa5OjbSyPHmrewD38TWkZAY88OcnAwDkZ32xbwbYOrKiS7XO5U7bPqOpvNqdDRSuFeJ4pRgjgywg1Egw7h9VpzgkCriK/zl0ZGbiPiPc4F5JNCOOtMuVRxyJ40pCbMOaAAp4su79hhvO394klqaV1vu18qbzTiGR3YQ1s8j4xkDEmA9rsNzgt8eSzti3x07ab7p2GlvVXDZTer7W3sNoZDxRVE88tHyLOI57RhIZzafWxzVakXyPc+zo3erTe4j1i88QcwXnCeFG60z+iZePnw/JT3qjVGzt+0ZpamqNRXmnuelo5Rb6enoJRFKXPjLWyF0R9H8kzo5vU8/DN7j7xbdigu1ZpWrut4ul2vFsuE0MtK6CKIUckD8AvY04c2DHVx4n9w6VpRBdGTxMLoj3BpJAJFM3BxGTQaYhXVPSHcgp93v3J0BedA3iz6SrrjX12o7xDdK5tRSvibRmOOFvCC5oDs9gwYaXdXHixjMBIiu1k2VBsuB2EEkitak1OgHIaAAacFSiRDENSiIiua8IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiL/2Q==" alt="Rede Ronaldo">
+  <div class="hd-div"></div>
+  <div class="hd-info">
+    <div class="hd-title">Casa Rede Ronaldo · Miami</div>
+    <div class="hd-sub">Copa do Mundo 2026 · Grade de Conteúdo</div>
+  </div>
+  <div class="hd-right">
+    <div class="hd-date">11 Jun – 19 Jul 2026</div>
+    <div class="hd-tz">Horário de Brasília</div>
+  </div>
+</header>
+<nav class="tabs"><button class="tab on" onclick="go('r1',this)">1ª Rodada</button><button class="tab" onclick="go('r2',this)">2ª Rodada</button><button class="tab" onclick="go('r3',this)">3ª Rodada</button><button class="tab" onclick="go('av',this)">16 Avos</button><button class="tab" onclick="go('oi',this)">Oitavas</button><button class="tab" onclick="go('qa',this)">Quartas</button><button class="tab" onclick="go('sf',this)">Semis & Final</button></nav>
+<main class="wrap"><div class="phase on" id="r1"><div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Qui · 11 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 1</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd11"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd11_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇲🇽 México x 🇿🇦 África do Sul</p><p class="er-sub">Grupo A · Cidade do México — Estádio Azteca</p></div></div><div class="er t-cavaco"><span class="er-t">18h</span><div class="er-c" id="cavmex"></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro001"></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd11"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro002"></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro003"></div></div><div class="er t-giro"><span class="er-t">22h</span><div class="er-c" id="giro004"></div></div><div class="er t-game"><span class="er-t">23h</span><div class="er-c"><p class="er-name">🇰🇷 Coreia do Sul x 🇨🇿 Rep. Tcheca</p><p class="er-sub">Grupo A · Guadalajara — Estádio Akron</p></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">15h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-show"><span class="sr-t">21h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">22h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">23h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Sex · 12 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 2</span><span class="chip c-d1">D-1 🇧🇷</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd12"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd12_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇨🇦 Canadá x 🇧🇦 Bósnia-Herzegovina</p><p class="er-sub">Grupo B · Toronto — BMO Field</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro005"></div></div><div class="er t-giro"><span class="er-t">19h</span><div class="er-c" id="giro006"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro007"></div></div><div class="er t-espd1"><span class="er-t">21h</span><div class="er-c" id="d112"></div></div><div class="er t-game"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇺🇸 EUA x 🇵🇾 Paraguai</p><p class="er-sub">Grupo D · Los Angeles — SoFi Stadium</p></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">19h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ ♥ Valentine's</span></div><div class="sr sr-show"><span class="sr-t">21h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">01h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Sáb · 13 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 3</span><span class="chip c-br">🇧🇷 Brasil</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd13"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd13_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇶🇦 Catar x 🇨🇭 Suíça</p><p class="er-sub">Grupo B · San Francisco — Levi's Stadium</p></div></div><div class="er t-cavaco"><span class="er-t">18h</span><div class="er-c" id="cavd13"></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro008"></div></div><div class="er t-br"><span class="er-t">19h</span><div class="er-c"><p class="er-name">🇧🇷 Brasil x 🇲🇦 Marrocos<span class="badge">Brasil</span></p><p class="er-sub">Grupo C · Nova Jersey — MetLife Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro009"></div></div><div class="er t-giro"><span class="er-t">19h</span><div class="er-c" id="giro010"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro011"></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro012"></div></div><div class="er t-game"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇭🇹 Haiti x 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia</p><p class="er-sub">Grupo C · Boston — Gillette Stadium</p></div></div><div class="er t-giro"><span class="er-t">00h</span><div class="er-c" id="giro013"></div></div><div class="er t-game"><span class="er-t">01h</span><div class="er-c"><p class="er-name">🇦🇺 Austrália x 🇹🇷 Turquia</p><p class="er-sub">Grupo D · Vancouver — BC Place</p></div></div><div class="er t-esp"><span class="er-t">22h30</span><div class="er-c" id="espd13"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">15h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-show"><span class="sr-t">22h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">00h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Dom · 14 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 4</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd14"></div></div><div class="er t-game"><span class="er-t">14h</span><div class="er-c"><p class="er-name">🇩🇪 Alemanha x 🇨🇼 Curaçao</p><p class="er-sub">Grupo E · Houston — NRG Stadium</p></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro014"></div></div><div class="er t-game"><span class="er-t">17h</span><div class="er-c"><p class="er-name">🇳🇱 Holanda x 🇯🇵 Japão</p><p class="er-sub">Grupo F · Dallas — AT&T Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd14"></div></div><div class="er t-game"><span class="er-t">20h</span><div class="er-c"><p class="er-name">🇨🇮 Costa do Marfim x 🇪🇨 Equador</p><p class="er-sub">Grupo E · Filadélfia — Lincoln Financial Field</p></div></div><div class="er t-game"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇸🇪 Suécia x 🇹🇳 Tunísia</p><p class="er-sub">Grupo F · Monterrey — Estadio BBVA</p></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">13h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">17h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">20h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">21h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Seg · 15 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 5</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-game"><span class="er-t">13h</span><div class="er-c"><p class="er-name">🇪🇸 Espanha x 🇨🇻 Cabo Verde</p><p class="er-sub">Grupo H · Atlanta — Mercedes-Benz Stadium</p></div></div><div class="er t-hyp"><span class="er-t">15h</span><div class="er-c" id="hyd15"></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇧🇪 Bélgica x 🇪🇬 Egito</p><p class="er-sub">Grupo G · Seattle — Lumen Field</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro015"></div></div><div class="er t-game"><span class="er-t">19h</span><div class="er-c"><p class="er-name">🇸🇦 Arábia Saudita x 🇺🇾 Uruguai</p><p class="er-sub">Grupo H · Miami — Hard Rock Stadium</p></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro016"></div></div><div class="er t-game"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇮🇷 Irã x 🇳🇿 Nova Zelândia</p><p class="er-sub">Grupo G · Los Angeles — SoFi Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd15"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">12h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">16h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">19h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">22h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Ter · 16 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 6</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd16"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd16_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇫🇷 França x 🇸🇳 Senegal</p><p class="er-sub">Grupo I · Nova Jersey — MetLife Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro017"></div></div><div class="er t-game"><span class="er-t">19h</span><div class="er-c"><p class="er-name">🇮🇶 Iraque x 🇳🇴 Noruega</p><p class="er-sub">Grupo I · Boston — Gillette Stadium</p></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro018"></div></div><div class="er t-game"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇦🇷 Argentina x 🇩🇿 Argélia</p><p class="er-sub">Grupo J · Kansas City — Arrowhead Stadium</p></div></div><div class="er t-giro"><span class="er-t">00h</span><div class="er-c" id="giro019"></div></div><div class="er t-game"><span class="er-t">01h</span><div class="er-c"><p class="er-name">🇦🇹 Áustria x 🇯🇴 Jordânia</p><p class="er-sub">Grupo J · San Francisco — Levi's Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd16"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">15h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">19h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">20h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">22h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Qua · 17 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 7</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd17"></div></div><div class="er t-game"><span class="er-t">14h</span><div class="er-c"><p class="er-name">🇵🇹 Portugal x 🇨🇩 RD Congo</p><p class="er-sub">Grupo K · Houston — NRG Stadium</p></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro020"></div></div><div class="er t-game"><span class="er-t">17h</span><div class="er-c"><p class="er-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra x 🇭🇷 Croácia</p><p class="er-sub">Grupo L · Dallas — AT&T Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd17"></div></div><div class="er t-game"><span class="er-t">20h</span><div class="er-c"><p class="er-name">🇬🇭 Gana x 🇵🇦 Panamá</p><p class="er-sub">Grupo L · Toronto — BMO Field</p></div></div><div class="er t-giro"><span class="er-t">19h</span><div class="er-c" id="giro021"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro022"></div></div><div class="er t-game"><span class="er-t">21h</span><div class="er-c"><p class="er-name">🇺🇿 Uzbequistão x 🇨🇴 Colômbia</p><p class="er-sub">Grupo K · Cidade do México — Estádio Azteca</p></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">17h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">20h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-samba"><span class="sr-t">21h</span><span class="sr-icon">🥁</span><span class="sr-name">Samba dos Amigos</span></div><div class="sr sr-dj"><span class="sr-t">23h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div></div><div class="phase" id="r2"><div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Qui · 18 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 8</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-game"><span class="er-t">13h</span><div class="er-c"><p class="er-name">🇨🇿 Rep. Tcheca x 🇿🇦 África do Sul</p><p class="er-sub">Grupo A · Atlanta — Mercedes-Benz Stadium</p></div></div><div class="er t-hyp"><span class="er-t">15h</span><div class="er-c" id="hyd18"></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇨🇭 Suíça x 🇧🇦 Bósnia-Herzegovina</p><p class="er-sub">Grupo B · Los Angeles — SoFi Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro023"></div></div><div class="er t-game"><span class="er-t">19h</span><div class="er-c"><p class="er-name">🇨🇦 Canadá x 🇶🇦 Catar</p><p class="er-sub">Grupo B · Vancouver — BC Place</p></div></div><div class="er t-resd"><span class="er-t">21h</span><div class="er-c" id="resd18"></div></div><div class="er t-game"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇲🇽 México x 🇰🇷 Coreia do Sul</p><p class="er-sub">Grupo A · Guadalajara — Estádio Akron</p></div></div><div class="er t-espd1"><span class="er-t">23h</span><div class="er-c" id="d118"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">12h</span><span class="sr-icon">🎧</span><span class="sr-name">Abertura</span></div><div class="sr sr-dj"><span class="sr-t">16h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">19h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">20h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">21h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">22h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Sex · 19 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 9</span><span class="chip c-br">🇧🇷 Brasil</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-game"><span class="er-t">01h</span><div class="er-c"><p class="er-name">🇹🇷 Turquia x 🇵🇾 Paraguai</p><p class="er-sub">Grupo D · San Francisco — Levi's Stadium</p></div></div><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd19"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd19_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇺🇸 EUA x 🇦🇺 Austrália</p><p class="er-sub">Grupo D · Seattle — Lumen Field</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro024"></div></div><div class="er t-game"><span class="er-t">19h</span><div class="er-c"><p class="er-name">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia x 🇲🇦 Marrocos</p><p class="er-sub">Grupo C · Boston — Gillette Stadium</p></div></div><div class="er t-cavaco"><span class="er-t">21h</span><div class="er-c" id="cavd19"></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro025"></div></div><div class="er t-br"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇧🇷 Brasil x 🇭🇹 Haiti<span class="badge">Brasil</span></p><p class="er-sub">Grupo C · Filadélfia — Lincoln Financial Field</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd19"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">15h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-show"><span class="sr-t">01h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Sáb · 20 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 10</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd20"></div></div><div class="er t-game"><span class="er-t">14h</span><div class="er-c"><p class="er-name">🇳🇱 Holanda x 🇸🇪 Suécia</p><p class="er-sub">Grupo F · Houston — NRG Stadium</p></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro026"></div></div><div class="er t-game"><span class="er-t">17h</span><div class="er-c"><p class="er-name">🇩🇪 Alemanha x 🇨🇮 Costa do Marfim</p><p class="er-sub">Grupo E · Toronto — BMO Field</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd20"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro027"></div></div><div class="er t-game"><span class="er-t">21h</span><div class="er-c"><p class="er-name">🇪🇨 Equador x 🇨🇼 Curaçao</p><p class="er-sub">Grupo E · Kansas City — Arrowhead Stadium</p></div></div><div class="er t-game"><span class="er-t">23h</span><div class="er-c"><p class="er-name">🇹🇳 Tunísia x 🇯🇵 Japão</p><p class="er-sub">Grupo F · Monterrey — Estadio BBVA</p></div></div><div class="er t-esp"><span class="er-t">21h</span><div class="er-c" id="espd20"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">13h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">17h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">20h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">21h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-show"><span class="sr-t">00h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">01h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Dom · 21 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 11</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-game"><span class="er-t">13h</span><div class="er-c"><p class="er-name">🇪🇸 Espanha x 🇸🇦 Arábia Saudita</p><p class="er-sub">Grupo H · Atlanta — Mercedes-Benz Stadium</p></div></div><div class="er t-hyp"><span class="er-t">15h</span><div class="er-c" id="hyd21"></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇧🇪 Bélgica x 🇮🇷 Irã</p><p class="er-sub">Grupo G · Los Angeles — SoFi Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro028"></div></div><div class="er t-game"><span class="er-t">19h</span><div class="er-c"><p class="er-name">🇺🇾 Uruguai x 🇨🇻 Cabo Verde</p><p class="er-sub">Grupo H · Miami — Hard Rock Stadium</p></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro029"></div></div><div class="er t-game"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇳🇿 Nova Zelândia x 🇪🇬 Egito</p><p class="er-sub">Grupo G · Vancouver — BC Place</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd21"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">12h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">16h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">19h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">22h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">00h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Seg · 22 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 12</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd22"></div></div><div class="er t-game"><span class="er-t">14h</span><div class="er-c"><p class="er-name">🇦🇷 Argentina x 🇦🇹 Áustria</p><p class="er-sub">Grupo J · Dallas — AT&T Stadium</p></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro030"></div></div><div class="er t-giro"><span class="er-t">17h</span><div class="er-c" id="giro031"></div></div><div class="er t-game"><span class="er-t">18h</span><div class="er-c"><p class="er-name">🇫🇷 França x 🇮🇶 Iraque</p><p class="er-sub">Grupo I · Filadélfia — Lincoln Financial Field</p></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro032"></div></div><div class="er t-game"><span class="er-t">21h</span><div class="er-c"><p class="er-name">🇳🇴 Noruega x 🇸🇳 Senegal</p><p class="er-sub">Grupo I · Nova Jersey — MetLife Stadium</p></div></div><div class="er t-giro"><span class="er-t">23h</span><div class="er-c" id="giro033"></div></div><div class="er t-game"><span class="er-t">00h</span><div class="er-c"><p class="er-name">🇯🇴 Jordânia x 🇩🇿 Argélia</p><p class="er-sub">Grupo J · San Francisco — Levi's Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd22"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">13h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">17h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">21h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">23h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Ter · 23 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 13</span><span class="chip c-d1">D-1 🇧🇷</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd23"></div></div><div class="er t-game"><span class="er-t">14h</span><div class="er-c"><p class="er-name">🇵🇹 Portugal x 🇺🇿 Uzbequistão</p><p class="er-sub">Grupo K · Houston — NRG Stadium</p></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro034"></div></div><div class="er t-game"><span class="er-t">17h</span><div class="er-c"><p class="er-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra x 🇬🇭 Gana</p><p class="er-sub">Grupo L · Boston — Gillette Stadium</p></div></div><div class="er t-giro"><span class="er-t">19h</span><div class="er-c" id="giro035"></div></div><div class="er t-game"><span class="er-t">20h</span><div class="er-c"><p class="er-name">🇵🇦 Panamá x 🇭🇷 Croácia</p><p class="er-sub">Grupo L · Toronto — BMO Field</p></div></div><div class="er t-giro"><span class="er-t">19h</span><div class="er-c" id="giro036"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro037"></div></div><div class="er t-espd1"><span class="er-t">21h</span><div class="er-c" id="d123"></div></div><div class="er t-giro"><span class="er-t">22h</span><div class="er-c" id="giro038"></div></div><div class="er t-game"><span class="er-t">23h</span><div class="er-c"><p class="er-name">🇨🇴 Colômbia x 🇨🇩 RD Congo</p><p class="er-sub">Grupo K · Guadalajara — Estádio Akron</p></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">13h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">17h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">20h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-dj"><span class="sr-t">23h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div></div><div class="phase" id="r3"><div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Qua · 24 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 14</span><span class="chip c-br">🇧🇷 Brasil</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd24"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd24_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇨🇭 Suíça x 🇨🇦 Canadá · 🇧🇦 Bósnia-Herzegovina x 🇶🇦 Catar</p><p class="er-sub">Grupo B · Vancouver / Seattle (simultâneos)</p></div></div><div class="er t-cavaco"><span class="er-t">18h</span><div class="er-c" id="cavd24"></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro039"></div></div><div class="er t-br"><span class="er-t">19h</span><div class="er-c"><p class="er-name">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia x 🇧🇷 Brasil<span class="badge">Brasil</span></p><p class="er-sub">Grupo C · Miami — Hard Rock Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro040"></div></div><div class="er t-game"><span class="er-t">19h</span><div class="er-c"><p class="er-name">🇲🇦 Marrocos x 🇭🇹 Haiti</p><p class="er-sub">Grupo C · Atlanta — Mercedes-Benz Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro041"></div></div><div class="er t-giro"><span class="er-t">19h</span><div class="er-c" id="giro042"></div></div><div class="er t-game"><span class="er-t">20h</span><div class="er-c"><p class="er-name">🇨🇿 Rep. Tcheca x 🇲🇽 México</p><p class="er-sub">Grupo A · Cidade do México — Estádio Azteca</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro043"></div></div><div class="er t-giro"><span class="er-t">19h</span><div class="er-c" id="giro044"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro045"></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro046"></div></div><div class="er t-game"><span class="er-t">22h</span><div class="er-c"><p class="er-name">🇿🇦 África do Sul x 🇰🇷 Coreia do Sul</p><p class="er-sub">Grupo A · Monterrey — Estadio BBVA</p></div></div><div class="er t-esp"><span class="er-t">22h30</span><div class="er-c" id="espd24"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">15h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-show"><span class="sr-t">22h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">23h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">00h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">01h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Qui · 25 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 15</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd25"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd25_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">16h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">17h</span><div class="er-c"><p class="er-name">🇪🇨 Equador x 🇩🇪 Alemanha · 🇨🇼 Curaçao x 🇨🇮 Costa do Marfim</p><p class="er-sub">Grupo E · Nova Jersey / Filadélfia (simultâneos)</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd25"></div></div><div class="er t-game"><span class="er-t">20h</span><div class="er-c"><p class="er-name">🇯🇵 Japão x 🇸🇪 Suécia · 🇹🇳 Tunísia x 🇳🇱 Holanda</p><p class="er-sub">Grupo F · Dallas / Kansas City (simultâneos)</p></div></div><div class="er t-giro"><span class="er-t">22h</span><div class="er-c" id="giro047"></div></div><div class="er t-game"><span class="er-t">23h</span><div class="er-c"><p class="er-name">🇹🇷 Turquia x 🇺🇸 EUA · 🇵🇾 Paraguai x 🇦🇺 Austrália</p><p class="er-sub">Grupo D · Los Angeles / San Francisco (simultâneos)</p></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">16h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">20h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">21h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><div class="sr sr-dj"><span class="sr-t">22h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">23h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Sex · 26 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 16</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd26"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd26_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🇳🇴 Noruega x 🇫🇷 França · 🇸🇳 Senegal x 🇮🇶 Iraque</p><p class="er-sub">Grupo I · Boston / Toronto (simultâneos)</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro048"></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd26"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro049"></div></div><div class="er t-game"><span class="er-t">21h</span><div class="er-c"><p class="er-name">🇨🇻 Cabo Verde x 🇸🇦 Arábia Saudita · 🇺🇾 Uruguai x 🇪🇸 Espanha</p><p class="er-sub">Grupo H · Houston / Guadalajara (simultâneos)</p></div></div><div class="er t-giro"><span class="er-t">23h</span><div class="er-c" id="giro050"></div></div><div class="er t-game"><span class="er-t">00h</span><div class="er-c"><p class="er-name">🇪🇬 Egito x 🇮🇷 Irã · 🇳🇿 Nova Zelândia x 🇧🇪 Bélgica</p><p class="er-sub">Grupo G · Seattle / Vancouver (simultâneos)</p></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">15h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">19h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">21h</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div>
+<div class="day day-show">
+  <div class="day-hd">
+    <strong class="day-name">Sáb · 27 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Dia 17</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyd27"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyd27_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">16h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">17h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-game"><span class="er-t">18h</span><div class="er-c"><p class="er-name">🇵🇦 Panamá x 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra · 🇭🇷 Croácia x 🇬🇭 Gana</p><p class="er-sub">Grupo L · Nova Jersey / Filadélfia (simultâneos)</p></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro051"></div></div><div class="er t-game"><span class="er-t">20h30</span><div class="er-c"><p class="er-name">🇨🇴 Colômbia x 🇵🇹 Portugal · 🇨🇩 RD Congo x 🇺🇿 Uzbequistão</p><p class="er-sub">Grupo K · Miami / Atlanta (simultâneos)</p></div></div><div class="er t-game"><span class="er-t">23h</span><div class="er-c"><p class="er-name">🇩🇿 Argélia x 🇦🇹 Áustria · 🇯🇴 Jordânia x 🇦🇷 Argentina</p><p class="er-sub">Grupo J · Kansas City / Dallas (simultâneos)</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resd27"></div></div></div>
+    <div class="section-divider">
+      <span class="section-label sh-label">🎵 Programação da Casa — Palco</span>
+    </div>
+    <div class="sh-grid"><div class="sr sr-dj"><span class="sr-t">17h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ — Abertura</span></div><div class="sr sr-dj"><span class="sr-t">21h</span><span class="sr-icon">🎧</span><span class="sr-name">DJ</span></div><div class="sr sr-show"><span class="sr-t">23h30</span><span class="sr-icon">🎤</span><span class="sr-name">SHOW</span></div><p class="sh-tz">Horários de Brasília · Miami ET+1h</p></div>
+</div></div><div class="phase" id="av"><div class="warn-bar">⚠️ Horários FIFA — sujeito a alterações</div><div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Dom · 28 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogo 73</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyda1"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyda1_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">16h</span><div class="er-c"><p class="er-name">⚽ 2A x 2B</p><p class="er-sub">Los Angeles — SoFi Stadium</p></div></div><div class="er t-slot"><span class="er-t">18h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resda1"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Seg · 29 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 74–76</span><span class="chip c-br">🇧🇷</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyda2"></div></div><div class="er t-mm"><span class="er-t">14h</span><div class="er-c"><p class="er-name">⚽ 2E x 2I</p><p class="er-sub">Dallas — AT&T Stadium</p></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro052"></div></div><div class="er t-giro"><span class="er-t">17h</span><div class="er-c" id="giro053"></div></div><div class="er t-br"><span class="er-t">17h30</span><div class="er-c"><p class="er-name">⚽ 1F x 2C<span class="badge">🇧🇷 2ºC</span></p><p class="er-sub">Houston — NRG Stadium</p></div></div><div class="er t-br"><span class="er-t">22h</span><div class="er-c"><p class="er-name">⚽ 1C x Repesc.<span class="badge">🇧🇷 1ºC</span></p><p class="er-sub">Monterrey — Estadio BBVA</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resda2"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Ter · 30 de Junho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 77–79</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyda3"></div></div><div class="er t-mm"><span class="er-t">14h</span><div class="er-c"><p class="er-name">⚽ 1J x 2H</p><p class="er-sub">Miami — Hard Rock Stadium</p></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro054"></div></div><div class="er t-giro"><span class="er-t">17h</span><div class="er-c" id="giro055"></div></div><div class="er t-mm"><span class="er-t">18h</span><div class="er-c"><p class="er-name">⚽ 1I x Repesc.</p><p class="er-sub">Boston — Gillette Stadium</p></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro056"></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro057"></div></div><div class="er t-mm"><span class="er-t">22h</span><div class="er-c"><p class="er-name">⚽ 1A x Repesc.</p><p class="er-sub">Cidade do México — Estádio Azteca</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resda3"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Qua · 1º de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 80–82</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-mm"><span class="er-t">13h</span><div class="er-c"><p class="er-name">⚽ 1E x Repesc.</p><p class="er-sub">Filadélfia — Lincoln Financial Field</p></div></div><div class="er t-hyp"><span class="er-t">15h</span><div class="er-c" id="hyda4"></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro058"></div></div><div class="er t-mm"><span class="er-t">17h</span><div class="er-c"><p class="er-name">⚽ 1G x Repesc.</p><p class="er-sub">Seattle — Lumen Field</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resda4"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro059"></div></div><div class="er t-mm"><span class="er-t">21h</span><div class="er-c"><p class="er-name">⚽ 1D x Repesc.</p><p class="er-sub">San Francisco — Levi's Stadium</p></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Qui · 2 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 83–86</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyda5"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyda5_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">16h</span><div class="er-c"><p class="er-name">⚽ 1H x 2J</p><p class="er-sub">Miami — Hard Rock Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro060"></div></div><div class="er t-mm"><span class="er-t">19h</span><div class="er-c"><p class="er-name">⚽ 2D x 2G</p><p class="er-sub">Atlanta — Mercedes-Benz Stadium</p></div></div><div class="er t-mm"><span class="er-t">20h</span><div class="er-c"><p class="er-name">⚽ 2K x Repesc.</p><p class="er-sub">Toronto — BMO Field</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resda5"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Sex · 3 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 87–88</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyda6"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyda6_b"></div></div><div class="er t-mm"><span class="er-t">15h</span><div class="er-c"><p class="er-name">⚽ 1B x Repesc.</p><p class="er-sub">Vancouver — BC Place</p></div></div><div class="er t-giro"><span class="er-t">17h</span><div class="er-c" id="giro061"></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro062"></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resda6"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro063"></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro064"></div></div><div class="er t-giro"><span class="er-t">22h</span><div class="er-c" id="giro065"></div></div><div class="er t-mm"><span class="er-t">22h30</span><div class="er-c"><p class="er-name">⚽ 1K x Repesc.</p><p class="er-sub">Atlanta — Mercedes-Benz Stadium</p></div></div><div class="er t-mm"><span class="er-t">00h</span><div class="er-c"><p class="er-name">⚽ 1L x Repesc.</p><p class="er-sub">Kansas City — Arrowhead Stadium</p></div></div></div>
+</div></div><div class="phase" id="oi"><div class="warn-bar">⚠️ Horários FIFA — sujeito a alterações</div><div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Sáb · 4 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 89–90</span><span class="chip c-br">🇧🇷</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hydo1"></div></div><div class="er t-mm"><span class="er-t">14h</span><div class="er-c"><p class="er-name">⚽ Venc. J73 x Venc. J75</p><p class="er-sub">Houston — NRG Stadium</p></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro066"></div></div><div class="er t-giro"><span class="er-t">17h</span><div class="er-c" id="giro067"></div></div><div class="er t-br"><span class="er-t">18h</span><div class="er-c"><p class="er-name">⚽ Venc. J74 x Venc. J77<span class="badge">🇧🇷 se 2ºC</span></p><p class="er-sub">Nova Jersey — MetLife Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdo1"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Dom · 5 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 91–92</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hydo2"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hydo2_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">16h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">17h</span><div class="er-c"><p class="er-name">⚽ Venc. J76 x Venc. J78</p><p class="er-sub">Miami — Hard Rock Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdo2"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro068"></div></div><div class="er t-mm"><span class="er-t">21h</span><div class="er-c"><p class="er-name">⚽ Venc. J79 x Venc. J80</p><p class="er-sub">Cidade do México — Estádio Azteca</p></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Seg · 6 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 93–94</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hydo3"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hydo3_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">16h</span><div class="er-c"><p class="er-name">⚽ Venc. J83 x Venc. J84</p><p class="er-sub">Los Angeles — SoFi Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro069"></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdo3"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro070"></div></div><div class="er t-mm"><span class="er-t">21h</span><div class="er-c"><p class="er-name">⚽ Venc. J81 x Venc. J82</p><p class="er-sub">Dallas — AT&T Stadium</p></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Ter · 7 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 95–96</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-mm"><span class="er-t">13h</span><div class="er-c"><p class="er-name">⚽ Venc. J86 x Venc. J88</p><p class="er-sub">Seattle — Lumen Field</p></div></div><div class="er t-hyp"><span class="er-t">15h</span><div class="er-c" id="hydo4"></div></div><div class="er t-giro"><span class="er-t">16h</span><div class="er-c" id="giro071"></div></div><div class="er t-mm"><span class="er-t">17h</span><div class="er-c"><p class="er-name">⚽ Venc. J85 x Venc. J87</p><p class="er-sub">Atlanta — Mercedes-Benz Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdo4"></div></div></div>
+</div></div><div class="phase" id="qa"><div class="warn-bar">⚠️ Horários FIFA — sujeito a alterações</div><div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Qui · 9 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogo 97</span><span class="chip c-br">🇧🇷</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hydq1"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hydq1_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">16h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-br"><span class="er-t">17h</span><div class="er-c"><p class="er-name">⚽ Venc. J89 x Venc. J90<span class="badge">🇧🇷 1º/2ºC</span></p><p class="er-sub">Nova Jersey — MetLife Stadium</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdq1"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Sex · 10 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogo 98</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hydq2"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hydq2_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">16h</span><div class="er-c"><p class="er-name">⚽ Venc. J93 x Venc. J94</p><p class="er-sub">Los Angeles — SoFi Stadium</p></div></div><div class="er t-slot"><span class="er-t">18h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdq2"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Sáb · 11 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogo 99</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hydq3"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hydq3_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">16h</span><div class="er-c"><p class="er-name">⚽ Venc. J91 x Venc. J92</p><p class="er-sub">Boston — Gillette Stadium</p></div></div><div class="er t-slot"><span class="er-t">18h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdq3"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Dom · 12 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogos 100–101</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hydq4"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hydq4_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">16h</span><div class="er-c"><p class="er-name">⚽ Venc. J97 x Venc. J98</p><p class="er-sub">Dallas — AT&T Stadium</p></div></div><div class="er t-giro"><span class="er-t">18h</span><div class="er-c" id="giro072"></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdq4"></div></div><div class="er t-giro"><span class="er-t">20h</span><div class="er-c" id="giro073"></div></div><div class="er t-giro"><span class="er-t">21h</span><div class="er-c" id="giro074"></div></div><div class="er t-mm"><span class="er-t">22h</span><div class="er-c"><p class="er-name">⚽ Venc. J95 x Venc. J96</p><p class="er-sub">Houston — NRG Stadium</p></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Seg · 13 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Jogo 102</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hydq5"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hydq5_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">16h</span><div class="er-c"><p class="er-name">⚽ Venc. J99 x Venc. J100</p><p class="er-sub">Atlanta — Mercedes-Benz Stadium</p></div></div><div class="er t-slot"><span class="er-t">18h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resdq5"></div></div></div>
+</div></div><div class="phase" id="sf"><div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Ter · 14 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Semifinal 1</span><span class="chip c-br">🇧🇷</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyds1"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyds1_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">16h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">17h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-br"><span class="er-t">18h</span><div class="er-c"><p class="er-name">⚽ Semifinal 1<span class="badge">🇧🇷 possível</span></p><p class="er-sub">Nova Jersey — MetLife Stadium</p></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Qua · 15 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">Semifinal 2</span><span class="chip c-br">🇧🇷</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyds2"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyds2_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-br"><span class="er-t">16h</span><div class="er-c"><p class="er-name">⚽ Semifinal 2<span class="badge">🇧🇷 possível</span></p><p class="er-sub">Dallas — AT&T Stadium</p></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">16h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">17h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">18h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">19h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">20h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">21h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-esp"><span class="er-t">22h</span><div class="er-c" id="esps2"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Sáb · 19 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">3º Lugar</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyds3"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyds3_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-mm"><span class="er-t">16h</span><div class="er-c"><p class="er-name">🥉 Disputa do 3º Lugar</p><p class="er-sub">Miami — Hard Rock Stadium</p></div></div><div class="er t-slot"><span class="er-t">18h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-resd"><span class="er-t">19h</span><div class="er-c" id="resds3"></div></div></div>
+</div>
+<div class="day">
+  <div class="day-hd">
+    <strong class="day-name">Dom · 19 de Julho</strong>
+    <span class="day-chips"><span class="chip c-d">🏆 Final</span><span class="chip c-br">🇧🇷</span></span>
+  </div>
+  <div class="section-divider">
+    <span class="section-label ed-label">📺 Grade Editorial — Estúdio</span>
+  </div>
+  <div class="ed-grid"><div class="er t-hyp"><span class="er-t">13h</span><div class="er-c" id="hyds4"></div></div><div class="er t-hyp"><span class="er-t">14h</span><div class="er-c" id="hyds4_b"></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">16h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-final"><span class="er-t">17h</span><div class="er-c"><p class="er-name">🏆 Final da Copa do Mundo 2026<span class="badge">🇧🇷 possível</span></p><p class="er-sub">Nova Jersey — MetLife Stadium</p></div></div><div class="er t-slot"><span class="er-t">15h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">16h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">17h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">18h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">19h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">20h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-slot"><span class="er-t">21h</span><div class="er-c"><p class="er-name">Slot de Conteúdo</p></div></div><div class="er t-esp"><span class="er-t">22h</span><div class="er-c" id="esps4"></div></div></div>
+</div></div></main>
+<script>
+const RR='data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADhAOEDASIAAhEBAxEB/8QAHQABAAICAwEBAAAAAAAAAAAAAAcIBQYCBAkDAf/EAEgQAAEDAwIDAwcGCwYHAQAAAAEAAgMEBREGBxIhMRNBUQgUIjJhcYEXQlJWkaEVFiNUgpKTlbHB0jM3V3J2syQlNVNidHW0/8QAHQEBAAEFAQEBAAAAAAAAAAAAAAQDBQYHCAIBCf/EAEMRAAECAwUFBAYGBwkAAAAAAAEAAgMEEQUGEiExByJBUWETMnGBFEKRobHwCFJicqLRIyQzwcLh4hYXGENTVIKy0v/aAAwDAQACEQMRAD8AhFERdYLH0RERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERZjRmmb1rDUdNp/T9IaquqMnBPCyJg9aSR3zWNyMn2gAFxANlbB5KdgbQM/GHVd4nrCPT/B7YoYmnwAkZI448cjOOg6KxWveSz7JIbMvo48AKmnPp5+Sqw4L4ndCqkin/dfybLlp60zXnR1xqb5T07S+ahniHnfCOZcwsAbIQPmBrTgHHESGqv7SHNDmkEEZBHepVl2xJ2rC7WVfiA14EeIPyeC8xIboZo4L9REVzXhERERERERERERERERERbJt9eLBaryG6nsVJdLXOQ2Vz4eOWnP02d7h4t6kcxzGHQLUnIslKRJiFBdFc0VwNpid0FSATyFc9BmqkJge8NJpXidFraK19HoLbytpIayj05Z6innYJIpY4w5r2kZBBHUFfX5OdCfVS1/sVoF/wBJSwYbix8nGBGRBDMvxrIhdeYIqHt9/wCSqWitp8nOhPqpa/2KfJzoT6qWv9ivP+Ji7/8AtI34P/af2Wmfrt9/5KpaK2E+2egpmFjtL0LQe+PijP2tIK1y8bHaQqmf8tnuVreOnBP2zCfaJMuPwcFPkPpHXVmHhkeHFhdS1pH4XE/hKpxLszbRVpB8/wAwq5Ipan281LoepdXN03p/XVqBDpYKiiLpQ0ZyWtB42kjl6LpB3lpUrbQS7A6/4KCLQ9ls9+4T2ltqYm8TyPW7J/ISAYPLAcMZLQtjwr/2ZNyhnbP/AFiENXMIOH77SQ5v/JoVqiSEWE7BFGE9f3HQqp6K/wB8ju131Hsv7BPkd2u+o1l/YKB/eXIf6L/d+a+egv5hUBRX9ds1tY71tCWR2PGnCxd12B2ouGSdL+av7nUlZPCB+i1/D9oXtm0qzid6E8eTT/EnoT+YVFkVn9YeSpAY3S6P1VMyQAkU12jD2uPcBLGGlg97Hn+cB680NqvQ1c2l1PZ5qISO4YagEPp5z/4SDkTjnwnDsdQFlNl3ks21Dhl4oLvqnI+w6+VVQiQHw+8FY7yHbLSRaQv+ojGw11TcRR9p1IhiiY8N9npSvJ8cNz0GLEKpnkZ69oLLdK/RN1mZTR3WcVVBK9wDXVHCGOiJPQuaxnD4lpHUtBtm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',ESPN='data:image/png;base64,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',CAVACO='data:image/png;base64,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';
+function logo(src,alt,st){return '<img class="er-logo" src="'+src+'" alt="'+alt+'"'+(st?' style="'+st+'"':'')+'>'; }
+function fill(id,lg,name,sub){
+  var e=document.getElementById(id);if(!e)return;
+  var inner=lg?'<div class="er-c-inner">'+lg+'<span class="er-name">'+name+'</span></div>':'<p class="er-name">'+name+'</p>';
+  e.innerHTML=inner+(sub?'<p class="er-sub">'+sub+'</p>':'');
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var lRR=logo(RR,'RR');
+  var lESPN=logo(ESPN,'ESPN','background:#f4f4f4;padding:2px;border-radius:3px');
+  var lCAV=logo(CAVACO,'Cavaco','border-radius:4px');
+  document.querySelectorAll('[id^="hyd"],[id^="hyda"],[id^="hydo"],[id^="hydq"],[id^="hyds"]').forEach(function(el){fill(el.id,lRR,'Abre Jornada','Guido Nunes, Karoline Lima e convidados')});
+  document.querySelectorAll('[id^="giro"]').forEach(function(el){fill(el.id,lRR,'Giro Rede Ronaldo','Cobertura ao vivo entre os jogos')});
+  document.querySelectorAll('[id^="resd"]').forEach(function(el){fill(el.id,lESPN,'ESPN | Resenha da Copa','Análise e repercussão do dia anterior')});
+  var espSubs={'espd20':'Pós Brasil x Haiti · no dia seguinte','esps2':'se Brasil jogar','esps4':'se Brasil jogar'};
+  ['espd13','espd24','espd20','esps2','esps4'].forEach(function(id){fill(id,lESPN,'ESPN | Resenha da Copa (Especial 🇧🇷)',espSubs[id]||'2h após o início do jogo')});
+  fill('d112',lESPN,'ESPN | Resenha da Copa (Especial 🇧🇷)','Véspera de Brasil x Marrocos');
+  fill('d118',lESPN,'ESPN | Resenha da Copa (Especial 🇧🇷)','Véspera de Brasil x Haiti');
+  fill('d123',lESPN,'ESPN | Resenha da Copa (Especial 🇧🇷)','Véspera de Escócia x Brasil');
+  fill('cavd13',lCAV,'Cavaco Futebol Clube','Pré-jogo Brasil · 1h');
+  fill('cavd19',lCAV,'Cavaco Futebol Clube','Pré-jogo Brasil · 1h');
+  fill('cavd24',lCAV,'Cavaco Futebol Clube','Pré-jogo Brasil · 1h');
+  fill('cavmex',lCAV,'Cavaco Futebol Clube','Pós-jogo México x África do Sul');
+});
+function go(id,btn){
+  document.querySelectorAll('.phase').forEach(function(p){p.classList.remove('on')});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+  document.getElementById(id).classList.add('on');btn.classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
