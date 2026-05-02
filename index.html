@@ -166,7 +166,9 @@ window.addEventListener('DOMContentLoaded',function(){
     fill(el.id,lRRV,'Giro Rede Ronaldo — Brasil','Cobertura ao vivo da Seleção');
   });
   document.querySelectorAll('[id^="hyd"],[id^="hyda"],[id^="hydo"],[id^="hydq"],[id^="hyds"]').forEach(function(el){if(el.id.endsWith('_b')){el.innerHTML='';}else{fill(el.id,lRR,'Welcome to Miami','Guido Nunes, Karoline Lima, Edilson e convidados');}});
-  document.querySelectorAll('[id^="emb"]').forEach(function(el){fill(el.id,lRR,'Embaixadoras','Programa ao vivo · 1h')});
+  document.querySelectorAll('[id^="emb"]').forEach(function(el){
+    fill(el.id,lRR,'As Embaixadoras','Milene Domingues · Marília Galvão · Roseli de Belo · Cath Scala · Semile · Stella Yeshua');
+  });
   document.querySelectorAll('[id^="giro"]').forEach(function(el){fill(el.id,lRR,'Giro Rede Ronaldo','Cobertura ao vivo entre os jogos')});
   document.querySelectorAll('[id^="resd"]').forEach(function(el){fill(el.id,lE,'ESPN | Resenha da Copa','Análise e repercussão do dia anterior')});
   var s={'espd20':'Pós Brasil x Haiti · no dia seguinte','esps2':'se Brasil jogar','esps4':'se Brasil jogar'};
